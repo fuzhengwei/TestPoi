@@ -20,14 +20,14 @@ public class Test {
 
         ExportExcelService exportExcelService = new ExportExcelUserServiceImpl();
         //1、创建工作簿
-        ExcelCreateWSRes excelCreateWSRes = exportExcelService.doExcelCreateWS(125, "人员信息");
+        ExcelCreateWSRes excelCreateWSRes = exportExcelService.doExcelCreateWS(1000, "人员信息");
         //2、创建工作簿-表头信息
         String[] headCells = {"省份", "城市", "学校", "姓名", "手机号", "身份证号"};
         exportExcelService.doExcelCreateHead(excelCreateWSRes.getSheet(), headCells);
         //3、添加导出内容
-        for (int limit = 0; limit < 10; limit++) {
+        for (int limit = 0; limit < 500; limit++) {
             List<UserBean> userList = new ArrayList<UserBean>();
-            for (int count = 0; count < 50000; count++) {
+            for (int count = 0; count < 1000; count++) {
                 UserBean userBean = new UserBean();
                 userBean.setProvice("北京");
                 userBean.setCity("北京");
